@@ -1,5 +1,8 @@
 import platform
 import os
+import sys
+
+IS_64 = sys.maxsize > 2 ** 32
 
 DIRECTIVES =[
 "#ifndef pact_ffi_h",
@@ -29,14 +32,16 @@ def load_ffi_library(ffi):
     """Load the right library."""
     target_platform = platform.platform().lower()
 
-    if ("darwin" in target_platform or "macos" in target_platform) and "aarch64" or "arm64" in platform.machine():
+    if ("darwin" in target_platform or "macos" in target_platform) and( "aarch64" or "arm64") in platform.machine():
         libname = os.path.abspath("pact/bin/libpact_ffi-osx-aarch64-apple-darwin.dylib")
     elif target_platform in ["darwin", "macos"]:
         libname = os.path.abspath("pact/bin/libpact_ffi-osx-x86_64.dylib")
-    elif 'linux' in target_platform:
+    elif "linux" in target_platform and IS_64 and ("arm64" or "aarch64") in platform.machine():
+        libname = os.path.abspath("pact/bin/libpact_ffi-linux-aarch64.so")
+    elif "linux" in target_platform and IS_64:
         libname = os.path.abspath("pact/bin/libpact_ffi-linux-x86_64.so")
     elif 'windows' in target_platform:
-        libname = os.path.abspath("pact/bin/libpact_ffi-osx-x86_64.dylib")
+        libname = os.path.abspath("pact/bin/pact_ffi-windows-x86_64.dll")
     else:
         msg = ('Unfortunately, {} is not a supported platform. Only Linux,'
                 ' Windows, and OSX are currently supported.').format(
