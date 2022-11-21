@@ -10,7 +10,7 @@ import area_calculator_pb2_grpc
 
 
 def run():
-    get_rectangle_area('localhost:50051')
+    get_rectangle_area('localhost:37757')
 
 def get_rectangle_area(address):
     print("Getting rectangle area.")

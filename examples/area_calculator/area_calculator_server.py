@@ -16,7 +16,7 @@ class AreaCalculator(area_calculator_pb2_grpc.CalculatorServicer):
 
 
 def serve():
-    port = '50051'
+    port = '37757'
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
     area_calculator_pb2_grpc.add_CalculatorServicer_to_server(AreaCalculator(), server)
     server.add_insecure_port('[::]:' + port)
