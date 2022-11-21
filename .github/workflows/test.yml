@@ -19,6 +19,12 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: ${{ matrix.python-version }}
+      - if: runner.os == 'Windows'
+        run: |
+             # This is not bash but a placeholder from WSL that tells you to install some WSL crap
+             # and by doing so it shadows the actual bash executable when calling CreateProcess from
+             # winapi, which rust's std::Command does ...
+             rm 'C:\Windows\System32\bash.exe'
       - name: setup
         run: |
             python -m pip install --upgrade pip

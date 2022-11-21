@@ -45,7 +45,7 @@ def load_ffi_library(ffi):
     else:
         msg = ('Unfortunately, {} is not a supported platform. Only Linux,'
                 ' Windows, and OSX are currently supported.').format(
-            platform.platform())
+            platform.platform().lower())
         raise Exception(msg)
 
     return ffi.dlopen(libname)
