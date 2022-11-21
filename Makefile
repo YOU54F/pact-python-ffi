@@ -27,7 +27,7 @@ test: run_pact_http run_pact_http_create_mock_server_for_pact run_pact_message_v
 pacts_show:
 	cat "pacts/Consumer-Alice Service.json" | jq .
 	cat "pacts/http-consumer-1-http-provider.json" | jq .
-	cat "pacts/http-consumer-http-provider.json" | jq .
+	cat "pacts/http-consumer-2-http-provider.json" | jq .
 	cat "pacts/message-consumer-2-message-provider.json" | jq .
 	cat "pacts/grpc-consumer-python-area-calculator-provider.json" | jq .
 
