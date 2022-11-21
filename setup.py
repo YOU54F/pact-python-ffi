@@ -218,11 +218,11 @@ def rust_lib_binary() -> Binary:
     print(target_platform)
     print(platform.machine())
 
-    if ("darwin" in target_platform or "macos" in target_platform) and ("arm64" or "aarch64") in platform.machine():
+    if ("darwin" in target_platform or "macos" in target_platform) and ("aarch64" in platform.machine() or "arm64" in platform.machine()):
         binary = "libpact_ffi-osx-aarch64-apple-darwin.dylib.gz"
     elif "darwin" in target_platform or "macos" in target_platform:
         binary = "libpact_ffi-osx-x86_64.dylib.gz"
-    elif "linux" in target_platform and IS_64 and ("arm64" or "aarch64") in platform.machine():
+    elif "linux" in target_platform and IS_64 and ("aarch64" in platform.machine() or "arm64" in platform.machine()):
         binary = "libpact_ffi-linux-aarch64.so.gz"
     elif "linux" in target_platform and IS_64:
         binary = "libpact_ffi-linux-x86_64.so.gz"

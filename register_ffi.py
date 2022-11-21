@@ -31,14 +31,12 @@ def process_pact_header_file(file):
 def load_ffi_library(ffi):
     """Load the right library."""
     target_platform = platform.platform().lower()
-    print(target_platform)
-    print(platform.machine())
 
-    if ("darwin" in target_platform or "macos" in target_platform) and( "aarch64" or "arm64") in platform.machine():
+    if ("darwin" in target_platform or "macos" in target_platform) and ("aarch64" in platform.machine() or "arm64" in platform.machine()):
         libname = os.path.abspath("pact/bin/libpact_ffi-osx-aarch64-apple-darwin.dylib")
     elif "darwin" in target_platform or "macos" in target_platform:
         libname = os.path.abspath("pact/bin/libpact_ffi-osx-x86_64.dylib")
-    elif "linux" in target_platform and IS_64 and ("arm64" or "aarch64") in platform.machine():
+    elif "linux" in target_platform and IS_64 and ("aarch64" in platform.machine() or "arm64" in platform.machine()):
         libname = os.path.abspath("pact/bin/libpact_ffi-linux-aarch64.so")
     elif "linux" in target_platform and IS_64:
         libname = os.path.abspath("pact/bin/libpact_ffi-linux-x86_64.so")
