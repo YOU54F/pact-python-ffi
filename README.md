@@ -23,7 +23,7 @@ Uses the same examples as demonstrated here
 
 ## Pre Requisities
 
-- [Python](https://www.python.org/) >=3.6 <=3.10
+- [Python](https://www.python.org/) 3.8 / 3.9 / 3.10
 - [Pact FFI](https://github.com/pact-foundation/pact-reference/tree/master/rust/pact_ffi) Library for OS
   - (install with `make setup`)
 - [Pact FFI](https://github.com/pact-foundation/pact-reference/tree/master/rust/pact_ffi) Header file
