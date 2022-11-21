@@ -31,6 +31,8 @@ def process_pact_header_file(file):
 def load_ffi_library(ffi):
     """Load the right library."""
     target_platform = platform.platform().lower()
+    print(target_platform)
+    print(platform.machine())
 
     if ("darwin" in target_platform or "macos" in target_platform) and( "aarch64" or "arm64") in platform.machine():
         libname = os.path.abspath("pact/bin/libpact_ffi-osx-aarch64-apple-darwin.dylib")
@@ -44,8 +46,7 @@ def load_ffi_library(ffi):
         libname = os.path.abspath("pact/bin/pact_ffi-windows-x86_64.dll")
     else:
         msg = ('Unfortunately, {} is not a supported platform. Only Linux,'
-                ' Windows, and OSX are currently supported.').format(
-            platform.platform().lower())
+                ' Windows, and OSX are currently supported.').format(target_platform)
         raise Exception(msg)
 
     return ffi.dlopen(libname)

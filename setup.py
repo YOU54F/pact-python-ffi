@@ -232,7 +232,7 @@ def rust_lib_binary() -> Binary:
         msg = (
             "Unfortunately, {} is not a supported platform. Only Linux x86_64,"
             " Windows, and OSX are currently supported."
-        ).format(platform.platform())
+        ).format(target_platform)
         raise Exception(msg)
 
     return Binary(filename=binary, version=PACT_STANDALONE_VERSION, suffix=None, single_file=True)
