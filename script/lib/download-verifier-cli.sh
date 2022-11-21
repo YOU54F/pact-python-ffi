@@ -49,7 +49,7 @@ function download_verifier_cli {
   PREFIX="${2:-}"
   OUTPUT_FILENAME="${3:-}"
   OS="${4:-}"
-  log "${PREFIX}pact_ffi-$SUFFIX" "${OUTPUT_FILENAME}"
+  log "${PREFIX}pact_verifier_cli-$SUFFIX" "${OUTPUT_FILENAME}"
 
   download_verifier_cli_file "${PREFIX}pact_verifier_cli-$SUFFIX" "${OUTPUT_FILENAME}"
   log " ... unzipping '$DOWNLOAD_LOCATION'"
@@ -72,27 +72,27 @@ detected_os=$(uname -sm)
 echo detected_os = $detected_os
 case ${detected_os} in
 'Darwin arm64')
-    echo "downloading of osx aarch64 FFI libs"
+    echo "downloading of osx aarch64 verifier cli"
     os='osx-aarch64'
     download_verifier_cli "osx-aarch64.gz" "" "pact_verifier_cli.gz" "${os}"
     ;;
 'Darwin x86' | 'Darwin x86_64' | "Darwin"*)
-    echo "downloading of osx x86_64 FFI libs"
+    echo "downloading of osx x86_64 verifier cli"
     os='osx-x86_64'
     download_verifier_cli "osx-x86_64.gz" "" "pact_verifier_cli.gz" "${os}"
     ;;
 "Linux aarch64"* | "Linux arm64"*)
-    echo "downloading of linux aarch64 FFI libs"
+    echo "downloading of linux aarch64 verifier cli"
     os='linux-aarch64'
     download_verifier_cli "linux-aarch64.gz" "" "pact_verifier_cli.gz" "${os}"
     ;;
 'Linux x86_64' | "Linux"*)
-    echo "downloading of linux x86_64 FFI libs"
+    echo "downloading of linux x86_64 verifier cli"
     os='linux-x86_64'
     download_verifier_cli "linux-x86_64.gz" "" "pact_verifier_cli.gz" "${os}"
     ;;
 "Windows"* | "MINGW64"*)
-    echo "downloading of windows x86_64 FFI libs"
+    echo "downloading of windows x86_64 verifier cli"
     os='win32'
     download_verifier_cli "windows-x86_64.exe.gz" "" "pact_verifier_cli.exe.gz" "${os}"
     ;;

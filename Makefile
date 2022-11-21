@@ -2,7 +2,7 @@ setup:
 	python setup.py develop
 
 install:
-	pip install -r pact.egg-info/requires.txt
+	pip install -r pact_python_ffi.egg-info/requires.txt
 
 run_hello_ffi:
 	python hello_ffi.py

@@ -1,5 +1,5 @@
 pact
-pact.egg-info
-__pycache__
+pact_python_ffi.egg-info
 logs
 pacts
+__pycache__
