@@ -2,6 +2,8 @@
 
 Demonstration usage of the Pact FFI Library with Python.
 
+Available to try out as a Killercoda example https://killercoda.com/safdotdev/course/safacoda/grpc_plugins_quick_start_python
+
 Based on some of the original work done by Elliot Murray and Mike Geeves
 
 - https://github.com/pact-foundation/pact-python/pull/265
