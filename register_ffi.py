@@ -36,7 +36,7 @@ def load_ffi_library(ffi):
 
     if ("darwin" in target_platform or "macos" in target_platform) and( "aarch64" or "arm64") in platform.machine():
         libname = os.path.abspath("pact/bin/libpact_ffi-osx-aarch64-apple-darwin.dylib")
-    elif target_platform in ["darwin", "macos"]:
+    elif "darwin" in target_platform or "macos" in target_platform:
         libname = os.path.abspath("pact/bin/libpact_ffi-osx-x86_64.dylib")
     elif "linux" in target_platform and IS_64 and ("arm64" or "aarch64") in platform.machine():
         libname = os.path.abspath("pact/bin/libpact_ffi-linux-aarch64.so")
