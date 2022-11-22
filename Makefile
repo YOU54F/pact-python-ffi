@@ -20,7 +20,7 @@ run_pact_plugin_grpc_v4:
 	python pact_plugin_grpc_v4.py
 
 grpc_install: install_cli_tools install_protobuf_plugin 
-	pip install -r examples/area_calculator/requirements.txt
+	pip install -r examples/area_calculator/requirements.txt --use-pep517
 
 test: run_pact_http run_pact_http_create_mock_server_for_pact run_pact_message_v3 run_pact_plugin_grpc_v4
 
